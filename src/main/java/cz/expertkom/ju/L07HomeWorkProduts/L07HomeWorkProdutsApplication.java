@@ -38,6 +38,7 @@ public class L07HomeWorkProdutsApplication {
 	jsonProvider.setSupportUnwrapped(true);
 	return jsonProvider;
 	}
+	/**/
 	@Bean
 	public Server rsServer() {
 		final JAXRSServerFactoryBean endpoint = new JAXRSServerFactoryBean();
