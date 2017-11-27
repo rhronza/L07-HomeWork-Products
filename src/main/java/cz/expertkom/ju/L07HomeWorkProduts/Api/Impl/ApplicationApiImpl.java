@@ -3,7 +3,9 @@ package cz.expertkom.ju.L07HomeWorkProduts.Api.Impl;
 import javax.ws.rs.core.Response;
 
 import org.springframework.beans.factory.annotation.Autowired;
+
 import cz.expertkom.ju.Papousek;
+import cz.expertkom.ju.PriceProductDb;
 import cz.expertkom.ju.L07HomeWorkProduts.Api.ApplicationApi;
 import cz.expertkom.ju.entity.PriceProductDto;
 
@@ -12,10 +14,11 @@ public class ApplicationApiImpl implements ApplicationApi {
 	@Autowired
 	Papousek papousek;
 	
+	@Autowired
+	PriceProductDb priceProductDb;
 	
-
-	public Response papousek(String parametr) {
-		String outputString = papousek.papouskovani(parametr);
+	public Response papousek(String parametr1, String parametr2) {
+		String outputString = papousek.papouskovani(parametr1, parametr2);
 		return Response.ok(outputString).build();
 	}
 
@@ -27,14 +30,13 @@ public class ApplicationApiImpl implements ApplicationApi {
 
 	@Override
 	public Response viewAllProducts() {
-		// TODO Auto-generated method stub
-		return null;
+		return Response.ok(priceProductDb.geAllProducts()).build() ;
 	}
 
 	@Override
 	public Response insertProduct(PriceProductDto priceProductDto) {
-		// TODO Auto-generated method stub
-		return null;
+		priceProductDb.insertPriceproduct(priceProductDto);
+		return Response.ok().build();
 	}
 
 	@Override

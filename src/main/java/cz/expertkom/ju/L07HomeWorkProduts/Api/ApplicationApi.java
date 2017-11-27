@@ -17,27 +17,13 @@ import cz.expertkom.ju.entity.PriceProductDto;
 @CrossOriginResourceSharing(allowAllOrigins = true)
 public interface ApplicationApi {
 	
-	/* papoušek - testovací přístup pro Api, nepřístupuje do databáze */
+	/* papoušek - testovací (dva vstupy přes URI), nepřístupuje do databáze */
 	@GET
-	@Path("Papousek/Variable/{ValueVariable}")
+	@Path("Papousek/Variable/{ValueVariable}/{ValueVariable2}/")
 	@Consumes(MediaType.WILDCARD)
 	@Produces(MediaType.APPLICATION_JSON)
-	public Response papousek (@PathParam(value = "ValueVariable") String param);
-
-	/*  vrátí konkrétní výskyt podle zadaného id */
-	@GET
-	@Path("productOne/{param}")
-	@Consumes(MediaType.WILDCARD)
-	@Produces(MediaType.APPLICATION_JSON)
-	public Response viewOneProduct (@PathParam(value = "param") Long id);
+	public Response papousek (@PathParam(value = "ValueVariable") String param, @PathParam(value = "ValueVariable2") String param2);
 	
-	/* zobrazení všech položek */
-	@GET
-	@Path("products")
-	@Consumes(MediaType.WILDCARD)
-	@Produces(MediaType.APPLICATION_JSON)
-	public Response viewAllProducts();
-
 	/* vložení nové hodnoty */
 	@POST
 	@Path("product")
@@ -58,6 +44,22 @@ public interface ApplicationApi {
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response updateProduct(@PathParam(value = "param") Long id, PriceProductDto priceProductDto);
+
+	/*  vrátí konkrétní výskyt podle zadaného id */
+	@GET
+	@Path("productOne/{param}")
+	@Consumes(MediaType.WILDCARD)
+	@Produces(MediaType.APPLICATION_JSON)
+	public Response viewOneProduct (@PathParam(value = "param") Long id);
+	
+	/* zobrazení všech položek */
+	@GET
+	@Path("products")
+	@Consumes(MediaType.WILDCARD)
+	@Produces(MediaType.APPLICATION_JSON)
+	public Response viewAllProducts();
+
+	
 
 	
 	

@@ -72,7 +72,7 @@ public class L07HomeWorkProdutsApplication {
 		final JAXRSServerFactoryBean endpoint = new JAXRSServerFactoryBean();
 		endpoint.setProvider(jsonProvider());
 		endpoint.setBus(bus);
-		endpoint.setAddress("/HomeWork-L07");
+		endpoint.setAddress("/Home/Work/L07");
 		endpoint.setServiceBeans(Arrays.<Object>asList(appApi()));
 	return endpoint.create();
 	
