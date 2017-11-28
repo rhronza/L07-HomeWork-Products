@@ -25,11 +25,6 @@ public class ApplicationApiImpl implements ApplicationApi {
 
 	@Override
 	public Response viewOneProduct(Long id) {
-		System.out.println("viewOneProduct");
-		//PriceProducts priceProducts = new PriceProducts();
-		System.out.println("viewOneProduct2");
-		System.out.println("viewOneProduct3");
-		//return Response.ok(priceProductDb.getOneProductToList(id)).build() ;
 		return Response.ok(priceProductDb.getOneProductToList(id)).build() ;
 	}
 
