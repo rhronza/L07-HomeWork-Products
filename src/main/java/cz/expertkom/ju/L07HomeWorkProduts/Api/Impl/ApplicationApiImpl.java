@@ -34,18 +34,19 @@ public class ApplicationApiImpl implements ApplicationApi {
 
 	@Override
 	public Response viewOneProduct(Long id) {
-		PriceProducts pps = new PriceProducts();
-		pps = priceProductDb.getOneProductToList(id);
-		String s = GSON.toJson(pps);
-		System.out.println(s);
-		return Response.ok(s).build() ;
+		/* převod na JSON před odevzdáním do Respons proveden z důvodu LocalDateTime, které by jinak zůstalo prázdným řetezcem */
+		PriceProducts pps = priceProductDb.getOneProductToList(id);
+		return Response.ok(GSON.toJson(pps)).build() ;
 	}
 
 	@Override
 	public Response viewAllProducts() {
-		return Response.ok(priceProductDb.getAllProducts()).build() ;
+		/* převod na JSON před odevzdáním do Respons proveden z důvodu LocalDateTime, které by jinak zůstalo prázdným řetezcem */ 
+		PriceProducts pps = priceProductDb.getAllProducts();
+		return Response.ok(GSON.toJson(pps)).build() ;
 	}
 
+	
 	@Override
 	public Response insertProduct(PriceProductDto priceProductDto) {
 		priceProductDb.insertPriceproduct(priceProductDto);
