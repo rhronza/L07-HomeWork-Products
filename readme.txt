@@ -18,6 +18,6 @@ http://localhost:8080/services/Home/Work/L07/product/valueId
 http://localhost:8080/services/Home/Work/L07/product/valueId
 v {body} je nová hodnota PriceProduct
 
-6) Volání papouška - v URI jsou 2 proměnné, které jsou ve výsledku sečteny jako řetězce (implementováno ve vrstvě services):
+6) Volání papouška - v URI jsou 2 hodnoty (value1, value2), které jsou ve výsledku sečteny jako řetězce (implementováno ve vrstvě services):
 Do prohlížeče zadat:
 http://localhost:8080/services/Home/Work/L07/Papousek/Variable/value1/value2
