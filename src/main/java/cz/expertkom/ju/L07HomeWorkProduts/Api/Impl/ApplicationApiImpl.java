@@ -3,6 +3,10 @@ package cz.expertkom.ju.L07HomeWorkProduts.Api.Impl;
 import javax.ws.rs.core.Response;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.google.gson.Gson;
 
 import cz.expertkom.ju.Papousek;
 import cz.expertkom.ju.PriceProductDb;
@@ -12,11 +16,16 @@ import cz.expertkom.ju.entity.PriceProducts;
 
 public class ApplicationApiImpl implements ApplicationApi {
 	
+	@JsonFormat(pattern="yyyy-MM-dd")
+	@DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
+	
 	@Autowired
 	Papousek papousek;
 	
 	@Autowired
 	PriceProductDb priceProductDb;
+	
+	private static final Gson GSON= new Gson(); 
 	
 	public Response papousek(String parametr1, String parametr2) {
 		String outputString = papousek.papouskovani(parametr1, parametr2);
@@ -25,7 +34,11 @@ public class ApplicationApiImpl implements ApplicationApi {
 
 	@Override
 	public Response viewOneProduct(Long id) {
-		return Response.ok(priceProductDb.getOneProductToList(id)).build() ;
+		PriceProducts pps = new PriceProducts();
+		pps = priceProductDb.getOneProductToList(id);
+		String s = GSON.toJson(pps);
+		System.out.println(s);
+		return Response.ok(s).build() ;
 	}
 
 	@Override

@@ -40,7 +40,6 @@ public interface ApplicationApi {
 	
 	/* ------------------------------------------------------------------ */
 	
-	/* error ! */
 	/*  vrátí konkrétní výskyt podle zadaného id */
 	@GET
 	@Path("productOne/{param}")
