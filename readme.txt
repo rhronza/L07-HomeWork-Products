@@ -1,5 +1,5 @@
 1) přehled všech záznamů (do prohlížeče)
-http://localhost:8080/services/Home/Work/L07/products
+	http://localhost:8080/services/Home/Work/L07/products
 
 2) záznam dle id (do prohlížeče)
 http://localhost:8080/services/Home/Work/L07/productOne/valueId
